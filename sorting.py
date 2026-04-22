@@ -29,17 +29,17 @@ def bubble_sort(values_original):
     n = 1
     while n < len(values):
         for i in range(len(values) - n):
+            values[i], values[i + 1] = values[i + 1], values[i]
+            index_highlight1 = i
+            index_highlight2 = i + 1
+            colors = ["steelblue"] * len(values)
+            colors[index_highlight1] = "tomato"
+            colors[index_highlight2] = "tomato"
+            plt.clf()
+            plt.bar(range(len(values)), values, color=colors)
+            plt.title("Bubble Sort")
+            plt.pause(0.1)
             if values[i] > values[i + 1]:
-                values[i], values[i+1] = values[i+1], values[i]
-                index_highlight1 = i
-                index_highlight2 = i + 1
-                colors = ["steelblue"] * len(values)
-                colors[index_highlight1] = "tomato"
-                colors[index_highlight2] = "tomato"
-                plt.clf()
-                plt.bar(range(len(values)), values, color=colors)
-                plt.title("Bubble Sort")
-                plt.pause(0.1)
         n += 1
     plt.ioff()
     plt.show()
@@ -49,7 +49,7 @@ def bubble_sort(values_original):
 
 
 if __name__ == "__main__":
-    seznam = random_numbers(100)  # 10 čísel v rozsahu 0–100
+    seznam = random_numbers(20)  # 10 čísel v rozsahu 0–100
     # print(values)  # např. [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
     #
     # small = random_numbers(5, low=0, high=20)  # 5 čísel v rozsahu 0–20
