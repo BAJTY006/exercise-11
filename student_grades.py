@@ -89,6 +89,7 @@ if __name__ == "__main__":
 #     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
 #     results.main()
 
+
     random_results = StudentsGrades(random_numbers(30, 0, 100))
     print(random_results.count())
     print(random_results.get_sorted())
