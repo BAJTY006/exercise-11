@@ -41,8 +41,10 @@ class StudentsGrades:
 
 
 
+
+
 if __name__ == "__main__":
-    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+    # results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
     #
     # print(results.count())          # 9
     # print(results.get_by_index(2))  # 91
@@ -56,6 +58,17 @@ if __name__ == "__main__":
     # print(results.find(50))  # [4]
     # print(results.find(77))  # []
 
-    print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
-    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]  ← beze změny
+    # print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
+    # print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]  ← beze změny
+
+    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+    students_number = results.count()
+    print(f"Test počítalo: {students_number} studnetů")
+
+    for i in range(students_number):
+        result = results.get_by_index(i)
+        znamka = results.get_grade(i)
+        print()
+
+
 
