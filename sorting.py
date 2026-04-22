@@ -5,7 +5,8 @@ def random_numbers(count, low=0, high=100):
     return [random.randint(low, high) for _ in range(count)]
 
 
-def selection_sort(values):
+def selection_sort(values_original):
+    values = values_original.copy()
     n = 0
     while n < len(values):
         min_index = n
@@ -16,14 +17,34 @@ def selection_sort(values):
                 min_value = values[i]
         values[n], values[min_index] = values[min_index], values[n]
         n += 1
-    print(values)
+    return values
+
+
+values = [42, 7, 100, 91, 15, 63, 8, 57, 73, 2]
+def bubble_sort(values_original):
+    values = values_original.copy()
+    n = 1
+    while n < len(values):
+        for i in range(len(values) - n):
+            if values[i] > values[i + 1]:
+                values[i], values[i+1] = values[i+1], values[i]
+        n += 1
+
+    return values
+
+
 
 
 if __name__ == "__main__":
-    values = random_numbers(10)  # 10 čísel v rozsahu 0–100
-    print(values)  # např. [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
-
-    small = random_numbers(5, low=0, high=20)  # 5 čísel v rozsahu 0–20
-    print(small)
-
-    selection_sort([42, 7, 91, 15, 63, 8, 57, 73, 2, 100])
+    # values = random_numbers(10)  # 10 čísel v rozsahu 0–100
+    # print(values)  # např. [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
+    #
+    # small = random_numbers(5, low=0, high=20)  # 5 čísel v rozsahu 0–20
+    # print(small)
+    #
+    # seznam = [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
+    # print(selection_sort(seznam))
+    # print(seznam)
+    seznam = [42, 7, 91, 15, 63, 8, 57, 73, 2, 100]
+    print(bubble_sort(seznam))
+    print(seznam)
