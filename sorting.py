@@ -1,5 +1,5 @@
 import random
-import matplotlib.pyplot as plt
+# import matplotlib.pyplot as plt
 
 
 def random_numbers(count, low=0, high=100):
@@ -30,16 +30,16 @@ def bubble_sort(values_original):
     while n < len(values):
         for i in range(len(values) - n):
             if values[i] > values[i + 1]:
-            values[i], values[i + 1] = values[i + 1], values[i]
-            index_highlight1 = i
-            index_highlight2 = i + 1
-            colors = ["steelblue"] * len(values)
-            colors[index_highlight1] = "tomato"
-            colors[index_highlight2] = "tomato"
-            plt.clf()
-            plt.bar(range(len(values)), values, color=colors)
-            plt.title("Bubble Sort")
-            plt.pause(0.1)
+                values[i], values[i + 1] = values[i + 1], values[i]
+                # index_highlight1 = i
+                # index_highlight2 = i + 1
+                # colors = ["steelblue"] * len(values)
+                # colors[index_highlight1] = "tomato"
+                # colors[index_highlight2] = "tomato"
+                # plt.clf()
+                # plt.bar(range(len(values)), values, color=colors)
+                # plt.title("Bubble Sort")
+                # plt.pause(0.1)
         n += 1
     plt.ioff()
     plt.show()

@@ -1,3 +1,6 @@
+from sorting import random_numbers
+
+
 class StudentsGrades:
     def __init__(self, scores):
         self.scores = scores
@@ -40,7 +43,7 @@ class StudentsGrades:
         return values
 
     def main(self):
-        students_number = results.count()
+        students_number = self.count()
         print(f"Test počítalo: {students_number} studnetů")
 
         for i in range(students_number):
@@ -83,8 +86,13 @@ if __name__ == "__main__":
 #         result = results.get_by_index(i)
 #         znamka = results.get_grade(i)
 #         print()
-    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
-    results.main()
+#     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+#     results.main()
+
+    random_results = StudentsGrades(random_numbers(30, 0, 100))
+    print(random_results.count())
+    print(random_results.get_sorted())
+    random_results.main()
 
 
 
