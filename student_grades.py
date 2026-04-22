@@ -29,6 +29,16 @@ class StudentsGrades:
                 indexes.append(i)
         return indexes
 
+    def get_sorted(self):
+        values = self.scores.copy()
+        n = 1
+        while n < len(values):
+            for i in range(len(values) - n):
+                if values[i] > values[i + 1]:
+                    values[i], values[i + 1] = values[i + 1], values[i]
+            n += 1
+        return values
+
 
 
 if __name__ == "__main__":
@@ -42,7 +52,10 @@ if __name__ == "__main__":
     # print(results.get_grade(6))  # A (100 bodů)
     # print(results.get_grade(7))  # F (38 bodů)
 
-    print(results.find(100))  # [6]
-    print(results.find(50))  # [4]
-    print(results.find(77))  # []
+    # print(results.find(100))  # [6]
+    # print(results.find(50))  # [4]
+    # print(results.find(77))  # []
+
+    print(results.get_sorted())  # [38, 42, 50, 58, 67, 73, 85, 91, 100]
+    print(results.scores)  # [85, 42, 91, 67, 50, 73, 100, 38, 58]  ← beze změny
 
