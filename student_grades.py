@@ -42,20 +42,43 @@ class StudentsGrades:
             n += 1
         return values
 
+    def average(self):
+        total = sum(self.scores)
+        average = total / len(self.scores)
+        average = round(average, 0)
+        average = int(average)
+        return average
+
+    def best(self):
+        usporadany = self.get_sorted()
+        return usporadany[-1]
+
     def main(self):
         students_number = self.count()
         print(f"Test počítalo: {students_number} studnetů")
+        F_counter = 0
 
         for i in range(students_number):
             result = self.get_by_index(i)
             znamka = self.get_grade(i)
+            if znamka == "F":
+                F_counter += 1
             print(f"Studen {i}: {result} bodů - {znamka} známka")
+
+        pass_rate = 1 - (F_counter / students_number)
+        print(f"Pass rate je: {pass_rate:.1f}")
 
         max_points = self.find(100)
         print(f"Idexy studentů, kteří měli 100 bodů: {max_points}")
 
         serazene_vysledky = self.get_sorted()
         print(f"Výsledky seřezené od nejhoršího po njelepšího: {serazene_vysledky}")
+
+        average_result = self.average()
+        print(f"Průměnné výsledky skupiny: {average_result}")
+
+        best = self.best()
+        print(best)
 
 
 
@@ -86,14 +109,14 @@ if __name__ == "__main__":
 #         result = results.get_by_index(i)
 #         znamka = results.get_grade(i)
 #         print()
-#     results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
-#     results.main()
+    results = StudentsGrades([85, 42, 91, 67, 50, 73, 100, 38, 58])
+    results.main()
 
 
-    random_results = StudentsGrades(random_numbers(30, 0, 100))
-    print(random_results.count())
-    print(random_results.get_sorted())
-    random_results.main()
+    # random_results = StudentsGrades(random_numbers(30, 0, 100))
+    # print(random_results.count())
+    # print(random_results.get_sorted())
+    # random_results.main()
 
 
 
